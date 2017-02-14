@@ -9,7 +9,6 @@ from time import clock
 
 
 # =========================  parameters =============================
-
 def check_positiveInt(value):
     ("return the value itself if it is a positive integer,"
      "otherwise triger an ArgumentTypeError.")
@@ -21,6 +20,7 @@ def check_positiveInt(value):
 
 
 parser = argparse.ArgumentParser()
+#                      [Program Basic Options]
 # Random seed
 parser.add_argument("-s", "--rndSeed", type=int, default=42,
                     help="Set random seed")
@@ -36,15 +36,24 @@ parser.add_argument("-p", "--prob", type=str, nargs='+',
                     help="""Probabilities of occurence of each symbol.
                             Please pass a space-seperated string to the function.
                             e.g. '1.0/6 1.0/3 1.0/6 1.0/3' is a valid input.""")
+
+
+#                    [Null Model Background Sequence Generation]
 # Count of total sequences generated
 parser.add_argument("-n", "--seqCnt", type=check_positiveInt, default=10000,
                     help="Count of total sequences to be generated")
 # Length of each sequence generated
 parser.add_argument("-l", "--seqLen", type=check_positiveInt, default=120,
                     help="Length of each sequence generated")
+
+
+#                     [D_2^R Statistic Computation]
 # K-mer length
 parser.add_argument("-k", "--kmerLen", type=check_positiveInt, default=5,
                     help="Length of K-mer")
+
+
+#                  [Program Running Settings]
 # Verbosity option: pop up a new window to show hitogram if specified
 parser.add_argument("-v", "--verbose", action="store_true",
                     help="Show histogram image")

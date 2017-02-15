@@ -124,7 +124,7 @@ prob = np.array(symbolProb)
 #        [Output Directory Initialization]
 # Create a folder containing the result like "len80".
 # If existed, remove it and recreate one.
-dirName = "len%d" % (seqLen)
+dirName = "alter_len%d" % (seqLen)
 if os.path.exists(dirName):
     __import__('shutil').rmtree(path=dirName)
 os.makedirs(dirName)

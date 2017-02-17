@@ -243,7 +243,7 @@ def D2(seq, kmerLen, amplifier):
 
 # Create a new file with name "alter_transition.d2_k5.txt" within the output directory.
 # This file holds the calculated D_2^R values.
-d2_output = open("%s/alter_transition.d2_k%d.txt" % (dirName, kmerLen), "w")
+d2_output = open("%s/alter_transition.d2.txt" % (dirName), "w")
 
 
 # Open the generated sequence file
@@ -263,8 +263,8 @@ hist = sns.distplot(d2_collection, kde=False, bins=binNum,
                     hist_kws={"histtype": "bar", "alpha": 0.5, "color": "g"},
                     axlabel="$D_2^R$ Values", )
 plot = hist.get_figure()
-plot.savefig("%s/alter_transition.d2_k%d.pdf" % (dirName, kmerLen), dpi=1200)
-plot.savefig("%s/alter_transition.d2_k%d.png" % (dirName, kmerLen), dpi=1200)
+plot.savefig("%s/alter_transition.d2.hist.pdf" % (dirName), dpi=1200)
+plot.savefig("%s/alter_transition.d2.hist.png" % (dirName), dpi=1200)
 
 if args.timing:
     tock = clock()

@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+import seaborn as sns
 import argparse
 from time import clock
 # ========================== Note ===================================
@@ -257,9 +258,13 @@ d2_output.close()
 
 # Draw histogram of D_2^R values
 d2_collection = np.array(d2_collection)
-plt.hist(d2_collection, bins=binNum, histtype='bar', color='green', alpha=0.5)
-plt.title('$D_2^R$ distribution')
-plt.savefig("%s/alter_transition.d2_k%d.png" % (dirName, kmerLen))
+sns.set(color_codes=True)
+hist = sns.distplot(d2_collection, kde=False, bins=binNum,
+                    hist_kws={"histtype": "bar", "alpha": 0.5, "color": "g"},
+                    axlabel="$D_2^R$ Values", )
+plot = hist.get_figure()
+plot.savefig("%s/alter_transition.d2_k%d.pdf" % (dirName, kmerLen), dpi=1200)
+plot.savefig("%s/alter_transition.d2_k%d.png" % (dirName, kmerLen), dpi=1200)
 
 if args.timing:
     tock = clock()

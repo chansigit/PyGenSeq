@@ -57,6 +57,9 @@ parser.add_argument("-k", "--kmerLen", type=check_positiveInt, default=5,
 # Verbosity option: pop up a new window to show hitogram if specified
 parser.add_argument("-v", "--verbose", action="store_true",
                     help="Show histogram image")
+# Histogram display option: number of histogram bins
+parser.add_argument("-b", "--binNum", type=check_positiveInt, default=100,
+                    help="Number of histogram bins")
 # Show running time if specified
 parser.add_argument("-t", "--timing", action="store_true",
                     help="Use timekeeper")
@@ -79,7 +82,7 @@ if abs(sum(symbolProb) - 1) > 1e-5:
 seqCnt = args.seqCnt
 seqLen = args.seqLen
 kmerLen = args.kmerLen
-
+binNum = args.binNum
 # ============================= Init ================================
 # Timekeeper
 if args.timing:
@@ -194,7 +197,7 @@ d2_output.close()
 
 # Draw histogram of D_2^R values
 d2_collection = np.array(d2_collection)
-plt.hist(d2_collection, bins=100, histtype='bar', color='green', alpha=0.5)
+plt.hist(d2_collection, bins=binNum, histtype='bar', color='green', alpha=0.5)
 plt.title('$D_2^R$ distribution')
 plt.savefig("%s/null_iid.d2_k%d.png" % (dirName, kmerLen))
 

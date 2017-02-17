@@ -1,0 +1,9 @@
+python null.iid.py -n 10000 -k 5 -l 40
+python null.iid.py -n 10000 -k 5 -l 60
+python null.iid.py -n 10000 -k 5 -l 80
+python null.iid.py -n 10000 -k 5 -l 100
+python null.iid.py -n 10000 -k 5 -l 120
+python null.iid.py -n 10000 -k 5 -l 140
+python null.iid.py -n 10000 -k 5 -l 160
+python null.iid.py -n 10000 -k 5 -l 180
+python null.iid.py -n 10000 -k 5 -l 200

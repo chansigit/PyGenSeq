@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+import seaborn as sns
 import argparse
 from time import clock
 # ========================== Note ===================================
@@ -58,7 +59,7 @@ parser.add_argument("-k", "--kmerLen", type=check_positiveInt, default=5,
 parser.add_argument("-v", "--verbose", action="store_true",
                     help="Show histogram image")
 # Histogram display option: number of histogram bins
-parser.add_argument("-b", "--binNum", type=check_positiveInt, default=100,
+parser.add_argument("-b", "--binNum", type=check_positiveInt, default=80,
                     help="Number of histogram bins")
 # Show running time if specified
 parser.add_argument("-t", "--timing", action="store_true",
@@ -197,10 +198,15 @@ d2_output.close()
 
 # Draw histogram of D_2^R values
 d2_collection = np.array(d2_collection)
-plt.hist(d2_collection, bins=binNum, histtype='bar', color='green', alpha=0.5)
-plt.title('$D_2^R$ distribution')
-plt.savefig("%s/null_iid.d2_k%d.png" % (dirName, kmerLen))
 
+sns.set(color_codes=True)
+hist = sns.distplot(d2_collection, kde=False, bins=binNum,
+                    hist_kws={"histtype": "bar", "alpha": 0.5, "color": "g"},
+                    axlabel="$D_2^R$ Values", )
+plot = hist.get_figure()
+plot.savefig("%s/null_iid.d2_k%d.pdf" % (dirName, kmerLen), dpi=1200)
+plot.savefig("%s/null_iid.d2_k%d.png" % (dirName, kmerLen), dpi=1200)
+plt.title('$D_2^R$ distribution')
 if args.timing:
     tock = clock()
     print("Taking {} seconds".format((tock - tick)))

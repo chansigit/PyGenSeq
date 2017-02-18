@@ -8,10 +8,17 @@ Parameters taken into consideration:
 * -k --kmerLen
 
 
-### 1.1 Experiment 1: Sequence Length Variation
+### 1.1 Experiment 1 - Null Model: Sequence Length Variation
 Investigate sequence length's impact on the distribution.
 Controled parameters: -n 10000 -k 5 
 
+To start the experiment, run:
+
+    bash exp1.sh
+
+`exp1.sh` contains the following contents:
+
+    # Generating sequences
     python null.iid.py -n 10000 -k 5 -l 40
     python null.iid.py -n 10000 -k 5 -l 60
     python null.iid.py -n 10000 -k 5 -l 80
@@ -22,8 +29,26 @@ Controled parameters: -n 10000 -k 5
     python null.iid.py -n 10000 -k 5 -l 180
     python null.iid.py -n 10000 -k 5 -l 200
 
-Read the generated null-model sequence files and plot the kernel density estimation to see the tendency.
-
+    # Read the generated null-model sequence files and plot 
+    # the kernel density estimation to see the tendency.
     # manually set lenth from 40 to 200 in this script
     python exp1.subroutine.kde1.py
 
+### 1.2 Experiment 2 - Null Asymptotic: Sequence Length Tends to Infinity
+Investigate how the distribution varies as the sequence length tends to infinity
+Controled parameters: -n 10000 -k 5 
+
+To start the experiment, run:
+
+    bash exp2.sh
+
+`exp2.sh` contains the following contents:
+
+    #Generating sequences
+    python null.iid.py -n 10000 -k 5 -l 300
+    python null.iid.py -n 10000 -k 5 -l 3000
+    python null.iid.py -n 10000 -k 5 -l 30000
+    python null.iid.py -n 10000 -k 5 -l 300000
+
+    #Read the generated null-model sequence, compute, and plot
+    python exp2.subroutine.kde1.py

@@ -1,3 +1,4 @@
+#!/bin/bash
 python null.iid.py -n 10000 -k 5 -l 40;echo "generated!"
 python null.iid.py -n 10000 -k 5 -l 60;echo "generated!"
 python null.iid.py -n 10000 -k 5 -l 80;echo "generated!"

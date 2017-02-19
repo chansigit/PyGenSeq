@@ -1,4 +1,4 @@
-PyGenSeq
+#PyGenSeq
 
 This program is still under construction.
 

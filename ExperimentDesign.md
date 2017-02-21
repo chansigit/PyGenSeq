@@ -90,4 +90,7 @@ To start the experiment, run:
     # Read the generated sequences in the two group, compute and plot
     python exp3.subroutine.kde1.py
 
+### 1.4 Experiment 4 - Alternative model: (Unimplemented)
+Generated various kinds of sequences with different parameters under 
+alternative model.
 

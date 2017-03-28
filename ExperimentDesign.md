@@ -53,7 +53,7 @@ To start the experiment, run:
     #Read the generated null-model sequences, compute, and plot
     python exp2.subroutine.kde1.py
 
-### 1.3 Experiment 3 - Null Model: K-mer Length Variation
+### 1.3 Experiment 3 - Null Model: K-mer Length Variation (Unimplemented)
 Investigate K-mer length's impact on the distribution.
 Controled parameters: -n 10000 -l 200
 

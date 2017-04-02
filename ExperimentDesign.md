@@ -1,16 +1,15 @@
-# Experiment Design
+## Experiment Design
 
-##1. Null model
-Parameters taken into consideration: 
+### Null model
+Parameters taken into consideration:
 
-* -n --seqCnt 
+* -n --seqCnt
 * -l --seqLen
 * -k --kmerLen
 
-
-### 1.1 Experiment 1 - Null Model: Sequence Length Variation
+###### 1.1 Experiment 1 - Null Model: Sequence Length Variation
 Investigate sequence length's impact on the distribution.
-Controled parameters: -n 10000 -k 5 
+Controled parameters: -n 10000 -k 5
 
 To start the experiment, run:
 
@@ -29,14 +28,17 @@ To start the experiment, run:
     python null.iid.py -n 10000 -k 5 -l 180
     python null.iid.py -n 10000 -k 5 -l 200
 
-    # Read the generated null-model sequence files and plot 
+    # Read the generated null-model sequence files and plot
     # the kernel density estimation to see the tendency.
     # manually set lenth from 40 to 200 in this script
     python exp1.subroutine.kde1.py
 
-### 1.2 Experiment 2 - Null Asymptotic: Sequence Length Tends to Infinity
+The result is shown in the figure:
+![image](exp1.kde1.png)
+
+###### 1.2 Experiment 2 - Null Asymptotic: Sequence Length Tends to Infinity
 Investigate how the distribution varies as the sequence length tends to infinity
-Controled parameters: -n 10000 -k 5 
+Controled parameters: -n 10000 -k 5
 
 To start the experiment, run:
 
@@ -53,7 +55,19 @@ To start the experiment, run:
     #Read the generated null-model sequences, compute, and plot
     python exp2.subroutine.kde1.py
 
-### 1.3 Experiment 3 - Null Model: K-mer Length Variation (Unimplemented)
+The result is shown in the figure:
+![image](exp2.kde1.png)
+
+If we scale up the figure, we can see four seperated peaks:
+the blue one and the green one are on the left,
+the read and short one besides the above two,
+and the tiny purple one on the right.
+
+Unfortunately, both lillifors test and normality test in `exp2.subroutine.kde1.py`
+indicate the asymptotic distribution is not a normal distribution.
+
+
+###### 1.3 Experiment 3 - Null Model: K-mer Length Variation
 Investigate K-mer length's impact on the distribution.
 Controled parameters: -n 10000 -l 200
 
@@ -63,7 +77,7 @@ To start the experiment, run:
 
 `exp3.sh` contains the following contents:
 
-    # Generating Group1 sequences 
+    # Generating Group1 sequences
     python null.iid.py -t -n 10000 -l 100 -k 3
     python null.iid.py -t -n 10000 -l 100 -k 4
     python null.iid.py -t -n 10000 -l 100 -k 5
@@ -71,26 +85,13 @@ To start the experiment, run:
     python null.iid.py -t -n 10000 -l 100 -k 7
     python null.iid.py -t -n 10000 -l 100 -k 8
     python null.iid.py -t -n 10000 -l 100 -k 9
-    python null.iid.py -t -n 10000 -l 100 -k 10 
+    python null.iid.py -t -n 10000 -l 100 -k 10
     python null.iid.py -t -n 10000 -l 100 -k 11
     python null.iid.py -t -n 10000 -l 100 -k 12
-
-    # Generating Group2 sequences
-    python null.iid.py -t -n 10000 -l 30000 -k 3
-    python null.iid.py -t -n 10000 -l 30000 -k 4
-    python null.iid.py -t -n 10000 -l 30000 -k 5
-    python null.iid.py -t -n 10000 -l 30000 -k 6
-    python null.iid.py -t -n 10000 -l 30000 -k 7
-    python null.iid.py -t -n 10000 -l 30000 -k 8
-    python null.iid.py -t -n 10000 -l 30000 -k 9
-    python null.iid.py -t -n 10000 -l 30000 -k 10
-    python null.iid.py -t -n 10000 -l 30000 -k 11
-    python null.iid.py -t -n 10000 -l 30000 -k 12
 
     # Read the generated sequences in the two group, compute and plot
     python exp3.subroutine.kde1.py
 
-### 1.4 Experiment 4 - Alternative model: (Unimplemented)
-Generated various kinds of sequences with different parameters under 
+###### 1.4 Experiment 4 - Alternative model: (Unimplemented)
+Generated various kinds of sequences with different parameters under
 alternative model.
-

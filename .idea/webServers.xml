@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="216058ef-ffb8-4957-8352-4b479954507f" name="deeplearning" url="http://166.111.130.45">
+        <fileTransfer host="166.111.130.45" port="50022" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="50022" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

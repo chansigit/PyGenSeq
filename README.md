@@ -35,7 +35,7 @@ To start the experiment, run:
     python exp1.subroutine.kde1.py
 
 The result is shown in the figure:
-![image](exp1.kde1.png)
+![image](Exp1/exp1.kde1.png)
 
 ##### 1.2 Experiment 2 - Null Asymptotic: Sequence Length Tends to Infinity
 Investigate how the distribution varies as the sequence length tends to infinity
@@ -57,7 +57,7 @@ To start the experiment, run:
     python exp2.subroutine.kde1.py
 
 The result is shown in the figure:
-![image](exp2.kde1.png)
+![image](Exp2/exp2.kde1.png)
 
 If we scale up the figure, we can see four seperated peaks:
 the blue one and the green one are on the left,

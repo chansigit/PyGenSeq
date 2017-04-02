@@ -93,6 +93,11 @@ To start the experiment, run:
     # Read the D_2^R of generated sequences in the two group, compute and plot
     python exp3.subroutine.kde1.py
 
+The result is shown in the figure:
+![image](Exp3/exp3.kde1.png)
+We can see that higher k-values will push the distribution curve to the
+left side and make it thinner and higher.
+
 ##### 1.4 Experiment 4 - Alternative model: (Unimplemented)
 Generated various kinds of sequences with different parameters under
 alternative model.

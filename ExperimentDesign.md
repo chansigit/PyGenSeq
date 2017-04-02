@@ -7,7 +7,7 @@ Parameters taken into consideration:
 * -l --seqLen
 * -k --kmerLen
 
-###### 1.1 Experiment 1 - Null Model: Sequence Length Variation
+##### 1.1 Experiment 1 - Null Model: Sequence Length Variation
 Investigate sequence length's impact on the distribution.
 Controled parameters: -n 10000 -k 5
 
@@ -17,7 +17,7 @@ To start the experiment, run:
 
 `exp1.sh` contains the following contents:
 
-    # Generating sequences
+    # Generating sequences and compute D_2^R values
     python null.iid.py -n 10000 -k 5 -l 40
     python null.iid.py -n 10000 -k 5 -l 60
     python null.iid.py -n 10000 -k 5 -l 80
@@ -28,7 +28,7 @@ To start the experiment, run:
     python null.iid.py -n 10000 -k 5 -l 180
     python null.iid.py -n 10000 -k 5 -l 200
 
-    # Read the generated null-model sequence files and plot
+    # Read the D_2^R of generated null-model sequence files and plot
     # the kernel density estimation to see the tendency.
     # manually set lenth from 40 to 200 in this script
     python exp1.subroutine.kde1.py
@@ -36,7 +36,7 @@ To start the experiment, run:
 The result is shown in the figure:
 ![image](exp1.kde1.png)
 
-###### 1.2 Experiment 2 - Null Asymptotic: Sequence Length Tends to Infinity
+##### 1.2 Experiment 2 - Null Asymptotic: Sequence Length Tends to Infinity
 Investigate how the distribution varies as the sequence length tends to infinity
 Controled parameters: -n 10000 -k 5
 
@@ -46,13 +46,13 @@ To start the experiment, run:
 
 `exp2.sh` contains the following contents:
 
-    # Generating sequences
+    # Generating sequences and compute D_2^R values
     python null.iid.py -n 10000 -k 5 -l 300
     python null.iid.py -n 10000 -k 5 -l 3000
     python null.iid.py -n 10000 -k 5 -l 30000
     python null.iid.py -n 10000 -k 5 -l 300000
 
-    #Read the generated null-model sequences, compute, and plot
+    #Read the D_2^R of generated null-model sequences, compute, and plot
     python exp2.subroutine.kde1.py
 
 The result is shown in the figure:
@@ -67,7 +67,7 @@ Unfortunately, both lillifors test and normality test in `exp2.subroutine.kde1.p
 indicate the asymptotic distribution is not a normal distribution.
 
 
-###### 1.3 Experiment 3 - Null Model: K-mer Length Variation
+##### 1.3 Experiment 3 - Null Model: K-mer Length Variation
 Investigate K-mer length's impact on the distribution.
 Controled parameters: -n 10000 -l 200
 
@@ -77,7 +77,7 @@ To start the experiment, run:
 
 `exp3.sh` contains the following contents:
 
-    # Generating Group1 sequences
+    # Calculate D2 with different k
     python null.iid.py -t -n 10000 -l 100 -k 3
     python null.iid.py -t -n 10000 -l 100 -k 4
     python null.iid.py -t -n 10000 -l 100 -k 5
@@ -89,9 +89,9 @@ To start the experiment, run:
     python null.iid.py -t -n 10000 -l 100 -k 11
     python null.iid.py -t -n 10000 -l 100 -k 12
 
-    # Read the generated sequences in the two group, compute and plot
+    # Read the D_2^R of generated sequences in the two group, compute and plot
     python exp3.subroutine.kde1.py
 
-###### 1.4 Experiment 4 - Alternative model: (Unimplemented)
+##### 1.4 Experiment 4 - Alternative model: (Unimplemented)
 Generated various kinds of sequences with different parameters under
 alternative model.

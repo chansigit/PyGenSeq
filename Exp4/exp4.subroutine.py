@@ -139,6 +139,6 @@ sns.kdeplot(alter_k14_set, label="alter k=14", bw=2)
 sns.kdeplot(alter_k17_set, label="alter k=17", bw=2)
 sns.kdeplot(alter_k20_set, label="alter k=20", bw=2)
 
-sns.plt.savefig("exp3.kde1.pdf", dpi=1200)
-sns.plt.savefig("exp3.kde1.png", dpi=1200)
+sns.plt.savefig("exp4.kde1.pdf", dpi=1200)
+sns.plt.savefig("exp4.kde1.png", dpi=1200)
 print("Graph rendered! Finished!")

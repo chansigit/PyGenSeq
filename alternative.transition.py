@@ -88,6 +88,9 @@ parser.add_argument("-b", "--binNum", type=check_positiveInt, default=100,
 # Show running time if specified
 parser.add_argument("-t", "--timing", action="store_true",
                     help="Use timekeeper")
+# Specify output directory
+parser.add_argument("-o", "--output", type=str, default="",
+                    help="Output folder name")
 
 # Parse command line arguments
 args = parser.parse_args()
@@ -111,7 +114,7 @@ repLen = args.repLen
 repCnt = args.repCnt
 spacerLen = args.spacerLen
 binNum = args.binNum
-
+output = args.output
 # ============================= Init ================================
 # Timekeeper
 if args.timing:
@@ -125,7 +128,10 @@ prob = np.array(symbolProb)
 #        [Output Directory Initialization]
 # Create a folder containing the result like "len80".
 # If existed, remove it and recreate one.
-dirName = "alter_len%d" % (seqLen)
+if output=="":
+    dirName = "null_len%d" % (seqLen)
+else:
+    dirName = output
 if os.path.exists(dirName):
     __import__('shutil').rmtree(path=dirName)
 os.makedirs(dirName)

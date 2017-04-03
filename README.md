@@ -1,7 +1,7 @@
-# PyGenSeq
+# *** PyGenSeq ***
 ## Experiment Design
 
-### Null model
+### 1. Null model
 Parameters taken into consideration:
 
 * -n --seqCnt
@@ -76,6 +76,7 @@ To start the experiment, run:
 
     bash exp3.sh
 
+
 `exp3.sh` contains the following contents:
 
     # Calculate D2 with different k
@@ -98,6 +99,49 @@ The result is shown in the figure:
 We can see that higher k-values will push the distribution curve to the
 left side and make it thinner and higher.
 
-##### 1.4 Experiment 4 - Alternative model: (Unimplemented)
+### 2. Alternative model
+In alternative model, repeats are inserted into sequences generated with i.i.d method.
+In addition to parameters mentioned above in the null model:
+* -n --seqCnt
+* -l --seqLen
+* -k --kmerLen
+
+,we have to further consider parameters that are used to generate repeats:
+* --repLen
+* --repCnt
+* --spacerLen
+
+Our alternative model inserts one repetitive section that has a structure looks like:
+
+`" Repeat--Spacer--Repeat--Spacer-- ... -- Spacer--Repeat "`
+
+All "Repeat"s are identical and have the same length,
+while all "Spacer"s are different from each other but share the same length.
+
+Note that the "Spacer" part is a null string for tandem repeats.
+The parameter `repLen` adjusts the length of "Repeat",
+the parameter `repCnt` adjusts the number of "Repeat" in the repetitive section,
+and the parameter "spacerLen" adjusts the length of non-repetitive interspaced strings.
+
+##### 2.1 Experiment 4 - Alternative model: (Unimplemented)
 Generated various kinds of sequences with different parameters under
 alternative model.
+
+
+    python null.iid..py              -t -n 10000 -l 200                                       -k 5 -o null_len200_k5
+    python alternative.transition.py -t -n 10000 -l 200 --repLen 18 --repCnt 5 --spacerLen 10 -k 5 -o alter_len200_k5
+
+    python null.iid..py              -t -n 10000 -l 200                                       -k 8 -o null_len200_k8
+    python alternative.transition.py -t -n 10000 -l 200 --repLen 18 --repCnt 5 --spacerLen 10 -k 8 -o alter_len200_k8
+
+    python null.iid..py              -t -n 10000 -l 200                                       -k 11 -o null_len200_k11
+    python alternative.transition.py -t -n 10000 -l 200 --repLen 18 --repCnt 5 --spacerLen 10 -k 11 -o alter_len200_k11
+
+    python null.iid..py              -t -n 10000 -l 200                                       -k 14 -o null_len200_k14
+    python alternative.transition.py -t -n 10000 -l 200 --repLen 18 --repCnt 5 --spacerLen 10 -k 14 -o alter_len200_k14
+
+    python null.iid..py              -t -n 10000 -l 200                                       -k 17 -o null_len200_k17
+    python alternative.transition.py -t -n 10000 -l 200 --repLen 18 --repCnt 5 --spacerLen 10 -k 17 -o alter_len200_k17
+
+    python null.iid..py              -t -n 10000 -l 200                                       -k 20 -o null_len200_k20
+    python alternative.transition.py -t -n 10000 -l 200 --repLen 18 --repCnt 5 --spacerLen 10 -k 20 -o alter_len200_k20

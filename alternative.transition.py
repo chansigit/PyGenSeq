@@ -219,6 +219,7 @@ profile.write('Freq:  nA=%f    nG=%f    nC=%f    nT=%f\n' %
               (nA / (seqCnt * seqLen), nG / (seqCnt * seqLen),
                nC / (seqCnt * seqLen), nT / (seqCnt * seqLen))
               )
+profile.write('repCnt: %d\nrepLen: %d\nspacerLen: %d\n' % (repCnt, repLen, spacerLen))
 profile.close()
 
 

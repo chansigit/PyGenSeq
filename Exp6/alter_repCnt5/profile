@@ -1,0 +1,9 @@
+Symbol: a    g    c    t
+Probab: 0.25    0.25    0.25    0.25
+SeqLength=200    SeqCnt=10000
+Random Seed=42
+Count: nA=0    nG=0    nC=0    nT=0
+Freq:  nA=0.000000    nG=0.000000    nC=0.000000    nT=0.000000
+repCnt: 5
+repLen: 10
+spacerLen: 10
